@@ -1,7 +1,54 @@
 <html>
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
-    <script src="sketch.js"></script>
+    <script type="text/javascript">
+    PImage img;
+PImage img2;
+PImage img3;
+
+
+function setup() {
+  creatCanvas(800, 1120, P3D);
+  translate(mouseX, mouseY, mouseY/2);
+  background(255);
+  img = loadImage("mix.png");
+  img2 = loadImage("2.png");
+  img3 = loadImage("3.png");
+}
+
+function draw() {
+
+  pushMatrix();
+  translate(mouseX+200, mouseY+200, 100);
+  beginShape();
+  noStroke();
+  box(270, 210, 1800);//box1
+  texture(img);
+  endShape();
+  popMatrix();
+
+  pushMatrix();
+  translate(mouseX-300, mouseY, 100);
+  fill(255);
+  rotate(150);
+  beginShape();
+  box(270, 180, 1500);//box2
+  texture(img);
+  endShape();
+  popMatrix();
+
+  pushMatrix();
+  translate(mouseX+100, mouseY-350, 100);
+  fill(255);
+  rotate(40);
+  beginShape();
+  box(270, 180, 1800);//box3
+  texture(img);
+  endShape();
+  popMatrix();
+  
+}
+    </script>
   </head>
   <body>
   </body>
