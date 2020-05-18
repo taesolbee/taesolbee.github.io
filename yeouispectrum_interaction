@@ -1,0 +1,168 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* Font */
+        @font-face {
+            font-family: 'YeouiGX';
+            src: url('https://mgntcstr.github.io/YeouiGX.ttf');
+            font-weight: 100 900;
+            font-stretch: 35% 100%;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /*truetype-variations*/
+		div {
+  			font-family: YeouiGX;
+			}
+		
+        @import url('YeouiGX.ttf');
+
+
+        .sample {
+            text-transform: uppercase;
+            font: 10.0vw 'YeouiGX'; /*9.5rem*/
+            line-height: 0.5;
+        }
+		
+		a{
+          background-color: rgba(1, 30, 65, 255);
+          color: white;
+            padding: 30px;
+        }
+        
+		@media all and (min-width:400px){
+		#YEOUI, #wrap{
+            position: absolute;
+			text-align: left;
+            text-transform: uppercase;
+            color: white;
+            top: 20%;
+            left: 20px;
+            z-index: 10;
+        
+		}
+		}
+
+	</style>
+	
+</head>
+
+<body>
+    <font style="font-family: Arial;">
+    <h1>YEOUISPECTRUM</h1>
+
+    <header>
+        <input type="range" id="weight" name="weight" min="1" max="1000" />
+        <label for="weight">Weight</label>
+    </header>
+    
+    <div id="YEOUI"> 
+         <h1 class="sample"><p><a>YEOUI</a></p><p><a>SPEC</a></p><p><a>TRU</a></p><p><a>M</a></p></h1> 
+    </div>
+
+    <div id="SPEC">
+        <h1 class="sample"></h1>
+    </div>
+
+    <div id="TRUM">
+        <h1 class="sample"></h1>
+    </div>
+
+    <script>
+
+        let weightLabel = document.querySelector('label[for="weight"]');
+        let weightInput = document.querySelector('#weight');
+        let sampleText = document.querySelector('.sample');
+
+        function update() {
+            weightLabel.textContent = 'Font Weight';
+            sampleText.style.fontWeight = weightInput.value;
+        }
+
+        weightInput.addEventListener('input', update);
+
+        update();
+
+    </script>
+
+    <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+    <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
+    <script language="javascript" type="text/javascript" src="sketch_200511a.js"></script>
+    <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+
+    <!-- This line removes any default padding and style.
+       You might only need one of these values set. -->
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+
+     <script type="text/javascript">
+
+        let img;
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight, WEBGL);
+            // windowWidth, windowHeight
+            // createCanvas(800, 1120, WEBGL); // 800, 1120
+            // translate(mouseX, mouseY, mouseY/2);
+            background(255);
+            //  img = loadImage("mix.png");
+            img = loadImage("https://taesolbee.github.io/mix.png");
+        }
+
+        function draw() {
+            //noStroke();
+            //fill(255, 0.6);
+            //rect(-width / 2, -height / 2, width, height);
+
+            push();
+            translate(mouseX - width / 2 + 200, mouseY - height / 2 + 200, 100);
+            beginShape();
+            noStroke();
+            texture(img);
+            box(270, 210, 1800);//box1
+            endShape();
+            pop();
+
+            push();
+            translate(mouseX - width / 2 - 300, mouseY - height / 2, 100);
+            fill(255);
+            rotate(150);
+            beginShape();
+            texture(img);
+            box(270, 180, 1500);//box2
+            endShape();
+            pop();
+
+            push();
+            translate(mouseX - width / 2 + 100, mouseY - height / 2 - 350, 100);
+            fill(255);
+            rotate(40);
+            beginShape();
+            texture(img);
+            box(270, 180, 1800);//box3
+            endShape();
+            pop();
+
+        }
+
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+        }
+         
+</script>
+
+</body>
+
+</html>
